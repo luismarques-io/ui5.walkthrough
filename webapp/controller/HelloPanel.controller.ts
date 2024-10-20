@@ -28,4 +28,10 @@ export default class HelloPanel extends Controller {
         }));
         this.dialog.open();
     }
+
+    onCloseDialog(): void {
+        // note: We don't need to chain to the pDialog promise, since this event-handler
+        // is only called from within the loaded dialog itself.
+        (<Dialog>this.byId("helloDialog"))?.close();
+    }
 }
