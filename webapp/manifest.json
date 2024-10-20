@@ -35,6 +35,13 @@
             "type": "XML",
             "id": "app"
         },
+        "resources": {
+            "css": [
+                {
+                    "uri": "css/style.css"
+                }
+            ]
+        },
         "models": {
             "i18n": {
                 "type": "sap.ui.model.resource.ResourceModel",
