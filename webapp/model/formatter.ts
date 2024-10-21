@@ -4,21 +4,7 @@ import ResourceModel from "sap/ui/model/resource/ResourceModel";
 
 export default {
     statusText: function (this: Controller, status: string): string | undefined {
-        switch (status) {
-            case "A":
-                return "New";
-            case "B":
-                return "In Progress";
-            case "C":
-                return "Done";
-            default:
-                return status;
-        }
-
-        const resourceBundle = <ResourceBundle>(<ResourceModel>this?.getOwnerComponent()?.getModel("i18n"))?.getResourceBundle();
-
-        console.log({ self: this, status, resourceBundle });
-
+        const resourceBundle = (this?.getOwnerComponent()?.getModel("i18n") as ResourceModel)?.getResourceBundle() as ResourceBundle;
         switch (status) {
             case "A":
                 return resourceBundle.getText("invoiceStatusA");

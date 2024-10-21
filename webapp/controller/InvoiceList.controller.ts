@@ -23,9 +23,10 @@ export default class App extends Controller {
         if (query) {
             filter.push(new Filter("ProductName", FilterOperator.Contains, query));
         }
+
         // filter binding
         const list = this.byId("invoiceList");
-        const binding = <ListBinding>list?.getBinding("items");
+        const binding = list?.getBinding("items") as ListBinding;
         binding?.filter(filter);
     }
 }
