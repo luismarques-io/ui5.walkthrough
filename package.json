@@ -5,7 +5,8 @@
     "description": "UI5 TypeScript Walkthrough",
     "private": true,
     "scripts": {
-        "start": "ui5 serve -o index.html"
+        "start": "ui5 serve -o index.html",
+        "start:dev": "ui5 serve -o test/mockServer.html"
     },
     "devDependencies": {
         "@types/openui5": "^1.120.0",
