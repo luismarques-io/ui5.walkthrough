@@ -6,7 +6,8 @@
     "private": true,
     "scripts": {
         "start": "ui5 serve -o index.html",
-        "start:dev": "ui5 serve -o test/mockServer.html"
+        "start:dev": "ui5 serve -o test/mockServer.html",
+        "test:unit": "ui5 serve -o test/unit/unitTests.qunit.html"
     },
     "devDependencies": {
         "@types/openui5": "^1.120.0",
