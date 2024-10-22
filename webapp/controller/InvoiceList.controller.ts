@@ -1,4 +1,6 @@
+import ObjectListItem from "sap/m/ObjectListItem";
 import { SearchField$SearchEvent } from "sap/m/SearchField";
+import Event from "sap/ui/base/Event";
 import Controller from "sap/ui/core/mvc/Controller";
 import Filter from "sap/ui/model/Filter";
 import FilterOperator from "sap/ui/model/FilterOperator";
@@ -31,8 +33,12 @@ export default class App extends Controller {
         binding?.filter(filter);
     }
 
-    onPress(): void {
+    onPress(event: Event): void {
+        const item = <ObjectListItem>event.getSource();
+
         const router = (<Component>this.getOwnerComponent()).getRouter();
-        router.navTo("detail");
+        router.navTo("detail", {
+            invoicePath: window.encodeURIComponent(item.getBindingContext("invoice").getPath().substr(1)),
+        });
     }
 }
