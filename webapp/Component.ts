@@ -1,4 +1,5 @@
 import UIComponent from "sap/ui/core/UIComponent";
+import Device from "sap/ui/Device";
 import JSONModel from "sap/ui/model/json/JSONModel";
 
 /**
@@ -21,6 +22,10 @@ export default class Component extends UIComponent {
         };
         const model = new JSONModel(data);
         this.setModel(model);
+        // set device model
+        const deviceModel = new JSONModel(Device);
+        deviceModel.setDefaultBindingMode("OneWay");
+        this.setModel(deviceModel, "device");
 
         // create the views based on the url/hash
         this.getRouter().initialize();
